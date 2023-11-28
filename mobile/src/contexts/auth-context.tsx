@@ -45,13 +45,23 @@ export function AuthProvider({ children }: Props) {
       .then(accessToken => {
         if (accessToken)
           setIsSignedIn(true);
+        else
+          setIsSignedIn(false);
       });
   }, []);
+
+  useEffect(() => {
+    if (!isSuccess)
+      AsyncStorage.removeItem('financeApp:token')
+        .then(() => {
+          setIsSignedIn(false);
+        });
+  }, [isSuccess]);
 
   return (
     <AuthContext.Provider
       value={{
-        isSignedIn: !!(isSuccess && isSignedIn),
+        isSignedIn: Boolean(isSuccess && isSignedIn),
         signIn,
         signOut,
         isLoading: isFetching,

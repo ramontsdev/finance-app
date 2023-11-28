@@ -2,7 +2,6 @@ import { useNavigation } from "@react-navigation/native";
 import { Controller } from "react-hook-form";
 import { Button } from "../../../components/button";
 import { Input } from "../../../components/input";
-import { LoadingScreen } from "../../../components/loading-screen";
 import { Text } from "../../../components/text";
 import { TouchLink } from "../../../components/touch-link";
 import { Container, Header, Title, Wrap, Wrapper } from "./styles";
@@ -11,9 +10,6 @@ import { useSignInController } from "./use-sign-in-controller";
 export function SignInScreen() {
   const { control, handleSubmit, errors, isLoading } = useSignInController()
   const navigation = useNavigation();
-
-  if (isLoading)
-    return <LoadingScreen />
 
   return (
     <Container>
@@ -58,7 +54,10 @@ export function SignInScreen() {
           )}
         />
 
-        <Button onPress={handleSubmit}>
+        <Button
+          onPress={handleSubmit}
+          isLoading={isLoading}
+        >
           Entrar
         </Button>
       </Wrapper>

@@ -33,6 +33,10 @@ export const Pressable = styled.Pressable.attrs(props => ({
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.primary};
 
+  ${({ disabled }) => disabled && css`
+    background-color: ${({ theme }) => theme.colors.gray[200]};
+  `}
+
   ${({ variant }) => variant === 'danger' && css`
     background-color: #ff0000;
   `}

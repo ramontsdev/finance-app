@@ -2,7 +2,6 @@ import { useNavigation } from "@react-navigation/native";
 import { Controller } from "react-hook-form";
 import { Button } from "../../../components/button";
 import { Input } from "../../../components/input";
-import { LoadingScreen } from "../../../components/loading-screen";
 import { Text } from "../../../components/text";
 import { TouchLink } from "../../../components/touch-link";
 import { Container, Header, Title, Wrap, Wrapper } from "./styles";
@@ -11,10 +10,6 @@ import { useSignUpController } from "./use-sign-up-controller";
 export function SignUpScreen() {
   const navigation = useNavigation();
   const { control, errors, handleSubmit, isLoading } = useSignUpController();
-
-  if (isLoading) {
-    return <LoadingScreen />
-  }
 
   return (
     <Container>
@@ -86,8 +81,11 @@ export function SignUpScreen() {
           )}
         />
 
-        <Button onPress={handleSubmit}>
-          Testando
+        <Button
+          onPress={handleSubmit}
+          isLoading={isLoading}
+        >
+          Criar
         </Button>
       </Wrapper>
     </Container>

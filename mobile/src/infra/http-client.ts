@@ -2,7 +2,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
 export const httpClient = axios.create({
-  baseURL: 'http://192.168.0.100:3001'
+  // baseURL: 'https://financeapp-backend-fw7g.onrender.com',
+  baseURL: 'http://192.168.0.100:3001',
 });
 
 httpClient.interceptors.request.use(async config => {
@@ -15,15 +16,13 @@ httpClient.interceptors.request.use(async config => {
   return config;
 })
 
-/* function delay(ms = 1000) {
+function delay(ms = 1000) {
   return new Promise(resolve => {
-    setTimeout(() => {
-      resolve;
-    }, ms)
+    setTimeout(() => resolve(''), ms)
   })
-} */
+}
 
 httpClient.interceptors.response.use(async data => {
-  // await delay(5000);
+  // await delay(10000);
   return data
 })
