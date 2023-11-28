@@ -20,7 +20,7 @@ type Props = {
 export function AuthProvider({ children }: Props) {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
-  const { data, isFetching, isSuccess, remove } = useQuery({
+  const { data, isFetching, isSuccess, remove, isFetched } = useQuery({
     queryKey: ['users', 'me'],
     queryFn: userService.me,
     enabled: isSignedIn,
@@ -51,12 +51,15 @@ export function AuthProvider({ children }: Props) {
   }, []);
 
   useEffect(() => {
-    if (!isSuccess)
-      AsyncStorage.removeItem('financeApp:token')
-        .then(() => {
-          setIsSignedIn(false);
-        });
-  }, [isSuccess]);
+    if (isFetched) {
+      if (!isSuccess) {
+        AsyncStorage.removeItem('financeApp:token')
+          .then(() => {
+            setIsSignedIn(false);
+          });
+      }
+    }
+  }, [isFetched, isSuccess]);
 
   return (
     <AuthContext.Provider
