@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { StatusBar } from "react-native"
 import Toast from 'react-native-toast-message'
 import { ThemeProvider } from "styled-components"
 import { AuthProvider } from "../contexts/auth-context"
@@ -19,6 +20,10 @@ export function Main() {
     <ThemeProvider theme={defaultTheme}>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
+          <StatusBar
+            barStyle={"dark-content"}
+            backgroundColor={defaultTheme.colors.secondary}
+          />
           <Routes />
           <Toast />
         </AuthProvider>
