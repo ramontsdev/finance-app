@@ -18,7 +18,7 @@ type Props = {
   children: ReactNode;
 }
 export function AuthProvider({ children }: Props) {
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(true);
 
   const { data, isFetching, isSuccess, remove, isFetched } = useQuery({
     queryKey: ['users', 'me'],
@@ -71,8 +71,8 @@ export function AuthProvider({ children }: Props) {
         user: data
       }}
     >
-      {isFetching && (<LoadingScreen />)}
-      {!isFetching && (children)}
+      {(isFetching) && (<LoadingScreen />)}
+      {(!isFetching) && (children)}
     </AuthContext.Provider>
   );
 };
