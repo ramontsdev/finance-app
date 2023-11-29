@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
 import { userService } from "../infra/user-service";
 import { User } from "../models/user";
@@ -27,8 +27,12 @@ export function AuthProvider({ children }: Props) {
     staleTime: Infinity,
   });
 
+  const queryClient = useQueryClient();
+
   const signIn = useCallback(async (accessToken: string) => {
     await AsyncStorage.setItem('financeApp:token', accessToken);
+
+    queryClient.invalidateQueries(['bank-accounts']);
 
     setIsSignedIn(true);
   }, []);
