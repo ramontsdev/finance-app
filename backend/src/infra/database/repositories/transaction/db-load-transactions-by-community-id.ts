@@ -26,6 +26,9 @@ export class DbLoadTransactionsByCommunityId implements ILoadTransactionsByCommu
           },
         },
       },
+      orderBy: {
+        date: 'asc',
+      },
     });
   }
 }
