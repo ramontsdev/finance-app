@@ -1,5 +1,5 @@
 import { FlatList } from "react-native";
-import { Loading } from "../bank-accounts/loading";
+import { Loading } from "../../../../components/loading";
 import { EditTransactionModal } from "../modals/edit-transaction-modal";
 import { EmptyTransactions } from "./empty-transactions";
 import { FilterTrigger } from "./filter-trigger";

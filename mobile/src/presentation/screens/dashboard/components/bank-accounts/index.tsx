@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList } from "react-native";
+import { Loading } from "../../../../components/loading";
 import { BankAccountCard } from "./bank-account-card";
-import { Loading } from "./loading";
 import { AccountsWrapper, AddBankAccountButton, Container, IconWrap, Title } from "./styles";
 import { useBankAccountsController } from "./use-bank-accounts-controller";
 
