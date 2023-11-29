@@ -7,6 +7,6 @@ export type TransactionsFilter = {
   bankAccountId?: string;
 };
 
-export interface ILoadTransactionsByCommunityId {
-  loadAll(communityId: string, filters: TransactionsFilter): Promise<Transaction[]>;
+export interface ILoadTransactionsByUserId {
+  loadAll(userId: string, filters: TransactionsFilter): Promise<Transaction[]>;
 }

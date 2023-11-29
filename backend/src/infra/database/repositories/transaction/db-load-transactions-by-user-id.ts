@@ -1,11 +1,11 @@
 import { Transaction } from '../../../../domain/models/transaction';
 import {
-  ILoadTransactionsByCommunityId,
+  ILoadTransactionsByUserId,
   TransactionsFilter,
-} from '../../../../domain/use-cases/transaction/load-transactions-by-community-id';
+} from '../../../../domain/use-cases/transaction/load-transactions-by-user-id';
 import { prismaClient } from '../../postgres-db';
 
-export class DbLoadTransactionsByCommunityId implements ILoadTransactionsByCommunityId {
+export class DbLoadTransactionsByUserId implements ILoadTransactionsByUserId {
   loadAll(userId: string, filters: TransactionsFilter): Promise<Transaction[]> {
     return prismaClient.transaction.findMany({
       where: {
