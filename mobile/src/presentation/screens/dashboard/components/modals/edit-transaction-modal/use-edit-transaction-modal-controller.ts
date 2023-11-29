@@ -95,7 +95,7 @@ export function useEditTransactionModalController(transaction: Transaction | nul
       await deleteTransaction(transaction!.id);
 
       queryClient.invalidateQueries({ queryKey: ['transactions'] });
-      queryClient.invalidateQueries({ queryKey: ['bankAccounts'] });
+      queryClient.invalidateQueries({ queryKey: ['bank-accounts'] });
 
       Toast.show({
         type: 'success',
