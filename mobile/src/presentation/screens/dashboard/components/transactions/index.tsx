@@ -40,41 +40,43 @@ export function TransactionsSide() {
         />
       </Header>
 
-      {isLoading && (
-        <Loading />
-      )}
+      <TransactionsWrapper>
+        {isLoading && (
+          <Loading />
+        )}
 
-      {(!hasTransactions && !isLoading) && (
-        <EmptyTransactions />
-      )}
+        {(!hasTransactions && !isLoading) && (
+          <EmptyTransactions />
+        )}
 
-      {(hasTransactions && !isLoading) && (
-        <TransactionsWrapper>
-          {transactionBeingEdited && (
-            <EditTransactionModal
-              isOpen={isOpenEditTransactionModal}
-              onClose={closeEditTransactionModal}
-              transaction={transactionBeingEdited}
-            />
-          )}
-
-          < FlatList
-            contentContainerStyle={{
-              gap: 8,
-              paddingHorizontal: 16,
-              paddingTop: 8,
-              paddingBottom: 8,
-            }}
-            data={transactions}
-            renderItem={({ item: transaction }) => (
-              <TransactionCard
-                transaction={transaction}
-                onPress={() => openEditTransactionModal(transaction)}
+        {(hasTransactions && !isLoading) && (
+          <>
+            {transactionBeingEdited && (
+              <EditTransactionModal
+                isOpen={isOpenEditTransactionModal}
+                onClose={closeEditTransactionModal}
+                transaction={transactionBeingEdited}
               />
             )}
-          />
-        </TransactionsWrapper>
-      )}
+
+            < FlatList
+              contentContainerStyle={{
+                gap: 8,
+                paddingHorizontal: 16,
+                paddingTop: 8,
+                paddingBottom: 8,
+              }}
+              data={transactions}
+              renderItem={({ item: transaction }) => (
+                <TransactionCard
+                  transaction={transaction}
+                  onPress={() => openEditTransactionModal(transaction)}
+                />
+              )}
+            />
+          </>
+        )}
+      </TransactionsWrapper>
     </Wrapper>
   )
 }
