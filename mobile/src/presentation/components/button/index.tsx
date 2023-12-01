@@ -6,6 +6,7 @@ type Props = TouchableOpacityProps & {
   children: ReactNode;
   variant?: 'danger' | 'ghost' | 'default';
   isLoading?: boolean;
+  color?: string;
 }
 export function Button({ children, isLoading, ...props }: Props) {
   return (
@@ -23,6 +24,7 @@ export function Button({ children, isLoading, ...props }: Props) {
         {!isLoading && (
           <Label
             variant={props.variant}
+            color={props.color}
           >
             {children}
           </Label>
