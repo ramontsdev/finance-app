@@ -2,6 +2,7 @@ import { FlatList } from "react-native";
 import { Loading } from "../../../../components/loading";
 import { EditTransactionModal } from "../modals/edit-transaction-modal";
 import { EmptyTransactions } from "./empty-transactions";
+import { FilterModal } from "./filter-modal";
 import { FilterTrigger } from "./filter-trigger";
 import { SelectMonth } from "./select-month";
 import { SelectTransactionTypeButtons } from "./select-transaction-type-buttons";
@@ -18,7 +19,11 @@ export function TransactionsSide() {
     isOpenEditTransactionModal,
     openEditTransactionModal,
     closeEditTransactionModal,
-    transactionBeingEdited
+    transactionBeingEdited,
+    openFilterModal,
+    closeFilterModal,
+    isFilterModalOpen,
+    handleApplyFilters
   } = useTransactionsController();
 
   const hasTransactions = transactions.length > 0;
@@ -31,7 +36,8 @@ export function TransactionsSide() {
             onChange={handleChangeFilters('type')}
             selectedType={filters.type}
           />
-          <FilterTrigger />
+
+          <FilterTrigger onPress={openFilterModal} />
         </FiltersWrapper>
 
         <SelectMonth
@@ -49,8 +55,15 @@ export function TransactionsSide() {
           <EmptyTransactions />
         )}
 
+        <FilterModal
+          onClose={closeFilterModal}
+          isOpen={isFilterModalOpen}
+          onApplyFilters={handleApplyFilters}
+        />
+
         {(hasTransactions && !isLoading) && (
           <>
+
             {transactionBeingEdited && (
               <EditTransactionModal
                 isOpen={isOpenEditTransactionModal}
@@ -78,5 +91,5 @@ export function TransactionsSide() {
         )}
       </TransactionsWrapper>
     </Wrapper>
-  )
-}
+  );
+};

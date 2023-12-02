@@ -41,6 +41,21 @@ export function useTransactionsController() {
     setIsOpenEditTransactionModal(false);
   }
 
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+
+  function openFilterModal() {
+    setIsFilterModalOpen(true);
+  };
+  function closeFilterModal() {
+    setIsFilterModalOpen(false);
+  };
+
+  function handleApplyFilters({ bankAccountId, year }: { bankAccountId?: string; year: number }) {
+    handleChangeFilters('bankAccountId')(bankAccountId);
+    handleChangeFilters('year')(year);
+    setIsFilterModalOpen(false);
+  }
+
   return {
     transactions: transactions ?? [],
     refetchTransactions,
@@ -50,6 +65,10 @@ export function useTransactionsController() {
     isOpenEditTransactionModal,
     transactionBeingEdited,
     openEditTransactionModal,
-    closeEditTransactionModal
+    closeEditTransactionModal,
+    isFilterModalOpen,
+    openFilterModal,
+    closeFilterModal,
+    handleApplyFilters,
   };
-}
+};
