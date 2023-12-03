@@ -2,10 +2,27 @@ import styled from "styled-components/native";
 import { Text } from "../../../../components/text";
 
 export const Container = styled.View`
-  height: 26%;
-  padding: 16px;
+  min-height: 28%;
+  padding: 8px 16px 4px 16px;
+
+  gap: 16px;
 
   background-color: ${({ theme }) => theme.colors.darkness};
+`;
+
+export const TotalBalanceWrap = styled.View`
+  flex-direction: row;
+  gap: 8px;
+`;
+
+export const TotalBalanceTitle = styled(Text)`
+    font-weight: 300;
+    color: white;
+`;
+
+export const TotalBalance = styled(Text)`
+  font-weight: 500;
+  color: white;
 `;
 
 export const Title = styled(Text)`
@@ -14,7 +31,7 @@ export const Title = styled(Text)`
 `;
 
 export const AccountsWrapper = styled.View`
-  margin-top: 16px;
+  margin-top: 8px;
 `;
 
 export const AddBankAccountButton = styled.TouchableOpacity`

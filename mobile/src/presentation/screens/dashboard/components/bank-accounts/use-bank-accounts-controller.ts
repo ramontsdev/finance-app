@@ -1,20 +1,22 @@
-import { useQuery } from "@tanstack/react-query";
-import { bankAccountsService } from "../../../../../infra/bank-accounts-service";
+import { useMemo } from "react";
+import { useBankAccounts } from "../../../../hooks/use-bank-accounts";
 import { useDashboard } from "../dashboard-context";
 
 export function useBankAccountsController() {
   const { openEditBankAccountModal, openAddBankAccountModal } = useDashboard();
 
-  const { data, isFetching } = useQuery({
-    queryKey: ['bank-accounts'],
-    queryFn: bankAccountsService.loadBankAccounts,
-    staleTime: Infinity
-  });
+  const { bankAccounts, isFetching } = useBankAccounts();
+
+  const currentBalance = useMemo(
+    () => bankAccounts.reduce((total, account) => total + account.currentBalance, 0),
+    [bankAccounts],
+  );
 
   return {
-    bankAccounts: data ?? [],
+    bankAccounts,
     isFetching,
     openEditBankAccountModal,
-    openAddBankAccountModal
+    openAddBankAccountModal,
+    currentBalance
   };
 };
