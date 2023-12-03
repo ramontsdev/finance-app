@@ -76,7 +76,6 @@ export function BankAccounts() {
                 )}
                 style={{ paddingBottom: 8 }}
                 contentContainerStyle={{ gap: 8 }}
-                onLayout={(test) => console.warn(test.nativeEvent.layout.height)}
               />
             )
           }
