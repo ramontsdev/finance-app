@@ -13,6 +13,8 @@ type DashboardContextProps = {
   openAddTransactionModal: (type: 'INCOME' | 'EXPENSE') => void;
   closeAddTransactionModal: () => void;
   newTransactionType: "INCOME" | "EXPENSE" | null;
+  toggleValuesVisibility: () => void;
+  areValuesVisible: boolean;
 }
 export const DashboardContext = createContext({} as DashboardContextProps);
 
@@ -51,6 +53,12 @@ export function DashboardProvider({ children }: Props) {
     setIsOpenAddTransactionModal(false);
   }, []);
 
+  const [areValuesVisible, setAreValuesVisible] = useState(true);
+
+  const toggleValuesVisibility = useCallback(() => {
+    setAreValuesVisible((prevState) => !prevState);
+  }, []);
+
   return (
     <DashboardContext.Provider
       value={{
@@ -64,7 +72,9 @@ export function DashboardProvider({ children }: Props) {
         isOpenAddTransactionModal,
         openAddTransactionModal,
         closeAddTransactionModal,
-        newTransactionType
+        newTransactionType,
+        toggleValuesVisibility,
+        areValuesVisible,
       }}
     >
       {children}

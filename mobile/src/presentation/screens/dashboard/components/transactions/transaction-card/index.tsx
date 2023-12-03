@@ -5,6 +5,7 @@ import { Transaction } from "../../../../../../models/transaction";
 import { CategoryIcon } from "../../../../../components/icons/categories/CategoryIcon";
 import { formatCurrency } from "../../../../../utils/format-currency";
 import { formatDate } from "../../../../../utils/format-date";
+import { useDashboard } from "../../dashboard-context";
 import { TransactionAmount, TransactionDate, TransactionLeftSideCard, TransactionName, Wrapper } from "./styles";
 
 type Props = {
@@ -13,6 +14,7 @@ type Props = {
 };
 export function TransactionCard({ transaction, onPress }: Props) {
   const { colors } = useTheme();
+  const { areValuesVisible } = useDashboard();
 
   return (
     <Wrapper
@@ -36,8 +38,16 @@ export function TransactionCard({ transaction, onPress }: Props) {
       </TransactionLeftSideCard>
 
       <TransactionAmount color={transaction.type === 'EXPENSE' ? colors.danger : colors.success}>
-        {transaction.type === 'EXPENSE' && `- ${formatCurrency(transaction.value)}`}
-        {transaction.type === 'INCOME' && `+ ${formatCurrency(transaction.value)}`}
+        {transaction.type === 'EXPENSE' && (
+          areValuesVisible
+            ? `- ${formatCurrency(transaction.value)}`
+            : `- R$ * * * *`
+        )}
+        {transaction.type === 'INCOME' && (
+          areValuesVisible
+            ? `+ ${formatCurrency(transaction.value)}`
+            : `+ R$ * * * *`
+        )}
       </TransactionAmount>
     </Wrapper>
   )

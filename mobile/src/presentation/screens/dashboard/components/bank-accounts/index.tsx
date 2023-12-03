@@ -1,10 +1,11 @@
 import React from "react";
-import { FlatList, View } from "react-native";
+import { FlatList, TouchableOpacity, View } from "react-native";
 import { Loading } from "../../../../components/loading";
 import { BankAccountCard } from "./bank-account-card";
 import { AccountsWrapper, AddBankAccountButton, Container, IconWrap, Title, TotalBalance, TotalBalanceTitle, TotalBalanceWrap } from "./styles";
 import { useBankAccountsController } from "./use-bank-accounts-controller";
 
+import { EyeIcon } from "../../../../components/icons/EyeIcon";
 import { Text } from "../../../../components/text";
 import { formatCurrency } from "../../../../utils/format-currency";
 import PlusIcon from '../fab/plus_icon.svg';
@@ -15,7 +16,9 @@ export function BankAccounts() {
     isFetching,
     openEditBankAccountModal,
     openAddBankAccountModal,
-    currentBalance
+    currentBalance,
+    toggleValuesVisibility,
+    areValuesVisible
   } = useBankAccountsController();
 
   const hasBankAccounts = bankAccounts.length > 0;
@@ -28,8 +31,16 @@ export function BankAccounts() {
         </TotalBalanceTitle>
 
         <TotalBalance>
-          {formatCurrency(currentBalance)}
+          {areValuesVisible && formatCurrency(currentBalance)}
+          {!areValuesVisible && 'R$ * * * *'}
         </TotalBalance>
+
+        <TouchableOpacity
+          onPress={toggleValuesVisibility}
+          hitSlop={{ left: 5, top: 5, right: 5, bottom: 5, }}
+        >
+          <EyeIcon open={!areValuesVisible} size={24} />
+        </TouchableOpacity>
       </TotalBalanceWrap>
 
       <View>

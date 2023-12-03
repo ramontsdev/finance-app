@@ -3,7 +3,12 @@ import { useBankAccounts } from "../../../../hooks/use-bank-accounts";
 import { useDashboard } from "../dashboard-context";
 
 export function useBankAccountsController() {
-  const { openEditBankAccountModal, openAddBankAccountModal } = useDashboard();
+  const {
+    openEditBankAccountModal,
+    openAddBankAccountModal,
+    toggleValuesVisibility,
+    areValuesVisible
+  } = useDashboard();
 
   const { bankAccounts, isFetching } = useBankAccounts();
 
@@ -17,6 +22,8 @@ export function useBankAccountsController() {
     isFetching,
     openEditBankAccountModal,
     openAddBankAccountModal,
-    currentBalance
+    currentBalance,
+    toggleValuesVisibility,
+    areValuesVisible
   };
 };

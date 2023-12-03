@@ -7,11 +7,12 @@ type EyeIconProps = {
 }
 export function EyeIcon({ open, color, size }: EyeIconProps) {
   const currentColor = color ? color : '#ffffff';
+  const currentSize = size ? size : 24;
 
   return (
     <Svg
-      width={size}
-      height={size}
+      width={currentSize}
+      height={currentSize}
       viewBox="0 0 24 24"
       fill="none"
     // xmlns="http://www.w3.org/2000/svg"
