@@ -2,8 +2,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
 export const httpClient = axios.create({
-  // baseURL: 'https://financeapp-backend-fw7g.onrender.com',
-  baseURL: 'http://192.168.0.100:3001',
+  baseURL: 'https://financeapp-backend-fw7g.onrender.com',
+  // baseURL: 'http://192.168.0.100:3001',
 });
 
 httpClient.interceptors.request.use(async config => {

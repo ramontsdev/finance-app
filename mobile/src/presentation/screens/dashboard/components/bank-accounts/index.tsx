@@ -1,6 +1,5 @@
 import React from "react";
 import { FlatList, TouchableOpacity, View } from "react-native";
-import { Loading } from "../../../../components/loading";
 import { BankAccountCard } from "./bank-account-card";
 import { AccountsWrapper, AddBankAccountButton, Container, IconWrap, Title, TotalBalance, TotalBalanceTitle, TotalBalanceWrap } from "./styles";
 import { useBankAccountsController } from "./use-bank-accounts-controller";
@@ -9,6 +8,7 @@ import { EyeIcon } from "../../../../components/icons/EyeIcon";
 import { Text } from "../../../../components/text";
 import { formatCurrency } from "../../../../utils/format-currency";
 import PlusIcon from '../fab/plus_icon.svg';
+import { Loading } from "./loading";
 
 export function BankAccounts() {
   const {
@@ -76,6 +76,7 @@ export function BankAccounts() {
                 )}
                 style={{ paddingBottom: 8 }}
                 contentContainerStyle={{ gap: 8 }}
+                onLayout={(test) => console.warn(test.nativeEvent.layout.height)}
               />
             )
           }
