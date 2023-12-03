@@ -4,5 +4,5 @@ import styled from "styled-components/native";
 export const GlobalContainer = styled.SafeAreaView`
 
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.lightness};
+  background-color: ${({ theme }) => theme.colors.gray.default};
 `
