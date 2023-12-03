@@ -12,5 +12,5 @@ export const Wrapper = styled.TouchableOpacity`
   align-items: center;
 
   border-radius: 24px;
-  background-color: ${({ theme }) => theme.colors.darkness};
+  background-color: ${({ theme }) => theme.colors.primary.default};
 `;

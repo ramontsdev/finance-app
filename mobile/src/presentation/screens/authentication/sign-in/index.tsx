@@ -2,9 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import { Controller } from "react-hook-form";
 import { Button } from "../../../components/button";
 import { Input } from "../../../components/input";
-import { Text } from "../../../components/text";
 import { TouchLink } from "../../../components/touch-link";
-import { Container, Header, Title, Wrap, Wrapper } from "./styles";
+import { Container, Header, Title, Txt, Wrap, Wrapper } from "./styles";
 import { useSignInController } from "./use-sign-in-controller";
 
 export function SignInScreen() {
@@ -18,7 +17,7 @@ export function SignInScreen() {
           <Title>Entrar em sua conta</Title>
 
           <Wrap>
-            <Text>Novo por aqui?</Text>
+            <Txt>Novo por aqui?</Txt>
 
             <TouchLink onPress={() => navigation.navigate('signUp')}>
               Crie uma conta

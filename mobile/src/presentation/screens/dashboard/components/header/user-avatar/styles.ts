@@ -8,7 +8,7 @@ export const Wrap = styled.TouchableOpacity`
   align-items: center;
 
   border-radius: 50px;
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.primary.default};
 `;
 export const Label = styled(Text)`
   font-weight: 500;

@@ -1,3 +1,4 @@
+import { useTheme } from "styled-components/native";
 import { TrashIcon } from "../../../../../components/icons/trash-icon";
 import { Modal } from "../../../../../components/modal";
 import { Text } from "../../../../../components/text";
@@ -10,6 +11,8 @@ type Props = {
   onConfirm: () => void;
 }
 export function ConfirmDeleteModal({ onClose, title, description, onConfirm }: Props) {
+  const { colors } = useTheme();
+
   return (
     <Modal
       onClose={onClose}
@@ -20,12 +23,12 @@ export function ConfirmDeleteModal({ onClose, title, description, onConfirm }: P
         <Wrap>
           <TrashIcon />
 
-          <Text weight="700">
+          <Text weight="700" color={colors.gray.default}>
             {title}
           </Text>
 
           {description && (
-            <Text size={14}>
+            <Text size={14} color={colors.gray.default}>
               {description}
             </Text>
           )}

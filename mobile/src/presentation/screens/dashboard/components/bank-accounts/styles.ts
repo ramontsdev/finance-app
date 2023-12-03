@@ -7,7 +7,7 @@ export const Container = styled.View`
 
   gap: 16px;
 
-  background-color: ${({ theme }) => theme.colors.darkness};
+  background-color: ${({ theme }) => theme.colors.gray.default};
 `;
 
 export const TotalBalanceWrap = styled.View`

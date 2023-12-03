@@ -9,7 +9,7 @@ type Props = {
 export function TrashIcon({ color, size }: Props) {
   const { colors } = useTheme();
 
-  const currentColor = color ? color : colors.danger;
+  const currentColor = color ? color : colors.danger.default;
   const currentSize = size ? size : 24;
 
   return (

@@ -10,6 +10,7 @@ type LabelProps = {
 }
 export const Label = styled(Text) <LabelProps>`
   font-size: 18px;
+  color: ${({ theme }) => theme.colors.gray[50]};
 
   ${({ variant }) => variant && css`
     color: ${({ theme }) => theme.colors.gray[50]};
@@ -24,14 +25,14 @@ type Props = {
   variant?: 'danger' | 'ghost' | 'default';
 }
 export const Pressable = styled.Pressable.attrs(props => ({
-  android_ripple: { color: props.theme.colors.secondary },
+  android_ripple: { color: props.theme.colors.primary[400] },
 })) <Props>`
   height: 48px;
   align-items: center;
   justify-content: center;
 
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.primary.default};
 
   ${({ disabled }) => disabled && css`
     background-color: ${({ theme }) => theme.colors.gray[200]};

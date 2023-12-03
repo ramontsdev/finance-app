@@ -26,6 +26,8 @@ export const Header = styled.View`
 export const Title = styled(Text)`
   font-size: 18px;
   font-weight: 500;
+
+  color: ${({ theme }) => theme.colors.gray.default};
 `;
 
 export const BodyModal = styled.View`
@@ -34,5 +36,5 @@ export const BodyModal = styled.View`
   padding: 16px;
 
   border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.lightness};
+  background-color: ${({ theme }) => theme.colors.gray[50]};
 `;

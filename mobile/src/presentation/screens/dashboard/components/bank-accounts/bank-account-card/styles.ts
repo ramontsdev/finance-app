@@ -10,15 +10,13 @@ export const Wrapper = styled.Pressable`
 
   border-radius: 16px;
 
-  background-color: ${({ theme }) => theme.colors.lightness};
-  border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.danger};
+  background-color: ${({ theme }) => theme.colors.primary.default};
 `;
 
 export const BankAccountName = styled(Text)`
   font-size: 16px;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.darkness};
+  color: ${({ theme }) => theme.colors.gray[50]};
 `;
 
 export const Balance = styled(Text)`

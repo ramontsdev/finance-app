@@ -44,6 +44,7 @@ export function AddTransactionModal() {
               onChangeValue={onChange}
               renderTextInput={props => (
                 <Input
+                  darkColor
                   label="Valor"
                   {...props}
                   errorMessage={errors.value?.message}
@@ -62,6 +63,7 @@ export function AddTransactionModal() {
           name="name"
           render={({ field: { value, onChange } }) => (
             <Input
+              darkColor
               label={isExpense ? 'Nome da despesa' : 'Nome da receita'}
               value={value}
               onChangeText={onChange}
@@ -75,6 +77,7 @@ export function AddTransactionModal() {
           name="categoryId"
           render={({ field: { value, onChange } }) => (
             <SelectOption
+              darkColor
               label="Categoria"
               onSelect={onChange}
               options={categories.map(category => ({
@@ -93,6 +96,7 @@ export function AddTransactionModal() {
           name="bankAccountId"
           render={({ field: { value, onChange } }) => (
             <SelectOption
+              darkColor
               label={isExpense ? 'Pagar com' : 'Receber com'}
               onSelect={onChange}
               options={bankAccounts.map(bankAccount => ({
@@ -112,6 +116,7 @@ export function AddTransactionModal() {
           render={({ field: { onChange, value } }) => (
             <>
               <DataDisplay
+                darkColor
                 label='Data'
                 onPress={openDatePicker}
                 value={formatDate(value)}

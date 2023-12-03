@@ -22,7 +22,7 @@ export function SelectTransactionTypeButtons({ selectedType, onChange }: Props) 
         onPress={() => handleChange('INCOME')}
       >
         <IncomeIcon />
-        <Text>Receitas</Text>
+        <Text color='#252525'>Receitas</Text>
       </IncomeButton>
 
       <ExpenseButton
@@ -30,7 +30,7 @@ export function SelectTransactionTypeButtons({ selectedType, onChange }: Props) 
         onPress={() => handleChange('EXPENSE')}
       >
         <ExpensesIcon />
-        <Text>Despesas</Text>
+        <Text color='#252525'>Despesas</Text>
       </ExpenseButton>
     </Wrapper>
   );

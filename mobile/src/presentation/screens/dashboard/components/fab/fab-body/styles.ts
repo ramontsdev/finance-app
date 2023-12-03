@@ -13,7 +13,7 @@ export const Body = styled.View`
 
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.gray[100]};
-  background-color: ${({ theme }) => theme.colors.lightness};
+  background-color: ${({ theme }) => theme.colors.gray[50]};
 `;
 
 export const TouchOption = styled.TouchableOpacity`

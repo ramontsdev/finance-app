@@ -6,7 +6,7 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
 
-  background-color: ${({ theme }) => theme.colors.lightness};
+  background-color: ${({ theme }) => theme.colors.gray.default};
 `
 export const Wrapper = styled.View`
   width: 90%;

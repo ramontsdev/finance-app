@@ -8,6 +8,7 @@ export const Overlay = styled.Pressable`
 
 export const DropdownBody = styled.View`
   width: 150px;
-  background-color: white;
+
+  background-color: ${({ theme }) => theme.colors.gray[50]};
   border-radius: 8px;
 `;

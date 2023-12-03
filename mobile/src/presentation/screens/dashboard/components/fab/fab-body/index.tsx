@@ -1,5 +1,6 @@
 import { RefObject, useEffect, useRef, useState } from "react";
 import { Dimensions, Modal, TouchableOpacity, View } from "react-native";
+import { useTheme } from "styled-components/native";
 import { BankAccountIcon } from "../../../../../components/icons/BankAccountIcon";
 import { CategoryIcon } from "../../../../../components/icons/categories/CategoryIcon";
 import { Text } from "../../../../../components/text";
@@ -34,6 +35,8 @@ export function FabBody({ isOpen, onClose, triggerRef }: Props) {
     })
   }, [isOpen])
 
+  const { colors } = useTheme();
+
   return (
     <Modal
       visible={isOpen}
@@ -63,17 +66,17 @@ export function FabBody({ isOpen, onClose, triggerRef }: Props) {
       >
         <TouchOption onPress={() => { openAddTransactionModal('EXPENSE'); onClose(); }}>
           <CategoryIcon type="expense" />
-          <Text>Nova Despesa</Text>
+          <Text color={colors.gray.default}>Nova Despesa</Text>
         </TouchOption>
 
         <TouchOption onPress={() => { openAddTransactionModal('INCOME'); onClose(); }}>
           <CategoryIcon type="income" />
-          <Text>Nova Receita</Text>
+          <Text color={colors.gray.default}>Nova Receita</Text>
         </TouchOption>
 
         <TouchOption onPress={() => { openAddBankAccountModal(); onClose(); }}>
           <BankAccountIcon />
-          <Text>Nova conta</Text>
+          <Text color={colors.gray.default}>Nova conta</Text>
         </TouchOption>
       </Body>
     </Modal >

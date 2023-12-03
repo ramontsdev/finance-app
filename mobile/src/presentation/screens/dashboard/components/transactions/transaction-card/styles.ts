@@ -12,7 +12,7 @@ export const Wrapper = styled.Pressable`
   padding: 0px 16px;
 
   border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.lightness};
+  background-color: ${({ theme }) => theme.colors.gray[50]};
 `;
 
 export const TransactionLeftSideCard = styled.View`
@@ -24,6 +24,8 @@ export const TransactionLeftSideCard = styled.View`
 export const TransactionName = styled(Text)`
   font-size: 16px;
   font-weight: 600;
+
+  color: ${({ theme }) => theme.colors.gray.default};
 `;
 
 export const TransactionDate = styled(Text)`

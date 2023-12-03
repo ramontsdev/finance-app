@@ -70,6 +70,7 @@ export function EditBankAccountModal() {
               onChangeValue={onChange}
               renderTextInput={props => (
                 <Input
+                  darkColor
                   label="Saldo"
                   {...props}
                   errorMessage={errors.initialBalance?.message}
@@ -88,6 +89,7 @@ export function EditBankAccountModal() {
           name="name"
           render={({ field: { value, onChange } }) => (
             <Input
+              darkColor
               label="Nome da conta"
               value={value}
               onChangeText={onChange}
@@ -101,6 +103,7 @@ export function EditBankAccountModal() {
           name="type"
           render={({ field: { value, onChange } }) => (
             <SelectOption
+              darkColor
               label="Tipo"
               onSelect={onChange}
               options={options}

@@ -14,7 +14,7 @@ export function Items({ onClose }: Props) {
       <TouchableOpacity
         onPress={signOut}
       >
-        <Text>
+        <Text color="#252525">
           Sair
         </Text>
       </TouchableOpacity>

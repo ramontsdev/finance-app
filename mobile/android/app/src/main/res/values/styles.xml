@@ -9,7 +9,7 @@
           @drawable/background_splash
         </item>
         <item name="android:statusBarColor">
-          @color/darkness
+          @color/primary
         </item>
     </style>
 

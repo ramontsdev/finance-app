@@ -4,6 +4,7 @@ import { Actions, Button, Wrapper, YearWrap } from "./styles";
 import { useFilterModalController } from "./use-filter-modal-controller";
 
 import { TouchableOpacity } from "react-native";
+import { useTheme } from "styled-components/native";
 import ChevronLeft from '../../../../../assets/chevron_left.svg';
 import ChevronRight from '../../../../../assets/chevron_right.svg';
 import { Text } from "../../../../../components/text";
@@ -27,6 +28,8 @@ export function FilterModal({ isOpen, onClose, onApplyFilters }: Props) {
     account.id === selectedBankAccountId
   ))]?.name;
 
+  const { colors } = useTheme();
+
   return (
     <Modal
       isOpen={isOpen}
@@ -35,6 +38,7 @@ export function FilterModal({ isOpen, onClose, onApplyFilters }: Props) {
     >
       <Wrapper>
         <SelectOption
+          darkColor
           label="Banco"
           onSelect={(id) => handleSelectBankAccount(id)}
           value={bankAccountName && bankAccountName}
@@ -44,7 +48,7 @@ export function FilterModal({ isOpen, onClose, onApplyFilters }: Props) {
           }))}
         />
 
-        <Text weight="600" size={18}>
+        <Text weight="600" size={18} color={colors.gray.default}>
           Ano
         </Text>
 
@@ -53,7 +57,7 @@ export function FilterModal({ isOpen, onClose, onApplyFilters }: Props) {
             <ChevronLeft />
           </TouchableOpacity>
 
-          <Text>
+          <Text color={colors.gray.default}>
             {selectedYear}
           </Text>
 

@@ -21,8 +21,8 @@ export function Main() {
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <StatusBar
-            barStyle={"dark-content"}
-            backgroundColor={defaultTheme.colors.secondary}
+            barStyle={"light-content"}
+            backgroundColor={defaultTheme.colors.gray.default}
           />
           <Routes />
           <Toast />

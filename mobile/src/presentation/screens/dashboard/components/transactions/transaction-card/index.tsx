@@ -37,7 +37,9 @@ export function TransactionCard({ transaction, onPress }: Props) {
         </View>
       </TransactionLeftSideCard>
 
-      <TransactionAmount color={transaction.type === 'EXPENSE' ? colors.danger : colors.success}>
+      <TransactionAmount
+        color={transaction.type === 'EXPENSE' ? colors.danger.default : '#10d610'}
+      >
         {transaction.type === 'EXPENSE' && (
           areValuesVisible
             ? `- ${formatCurrency(transaction.value)}`

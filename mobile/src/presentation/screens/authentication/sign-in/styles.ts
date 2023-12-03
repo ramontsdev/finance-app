@@ -6,7 +6,7 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
 
-  background-color: ${({ theme }) => theme.colors.lightness};
+  background-color: ${({ theme }) => theme.colors.gray.default};
 `
 export const Wrapper = styled.View`
   width: 90%;
@@ -26,4 +26,9 @@ export const Wrap = styled.View`
 export const Title = styled(Text)`
   font-size: 24px;
   font-weight: 600;
+
+  color: ${({ theme }) => theme.colors.gray[50]};
 `
+export const Txt = styled(Text)`
+  color: ${({ theme }) => theme.colors.gray[50]};
+`;

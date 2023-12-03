@@ -8,9 +8,9 @@ interface TextProps {
 }
 
 export const Text = styled.Text<TextProps>`
-  color: ${({ color }) => color || '#333'};
+  color: ${({ color, theme }) => color || theme.colors.gray[50]};
   font-size: ${({ size }) => size ? `${size}px` : '16px'};
   opacity: ${({ opacity }) => opacity || 1};
-  
+
   ${({ weight }) => weight && `font-weight: ${weight};`}
 `;

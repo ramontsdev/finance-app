@@ -7,5 +7,5 @@ export const Container = styled.View`
 
   padding: 8px 16px;
 
-  background-color: ${({ theme }) => theme.colors.lightness};
+  background-color: ${({ theme }) => theme.colors.gray.default};
 `;

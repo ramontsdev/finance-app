@@ -1,5 +1,6 @@
 import { RefObject, useEffect, useState } from "react";
 import { Dimensions, FlatList, Modal, TouchableOpacity } from "react-native";
+import { useTheme } from "styled-components/native";
 import { Body, Label, Option, OverflowClose } from "./styles";
 
 type Props = {
@@ -8,11 +9,12 @@ type Props = {
   triggerRef: RefObject<TouchableOpacity>;
   onSelect: (option: { value: string; label: string; }) => void;
   options: Array<{ value: string; label: string; }>;
+  darkColor?: boolean;
 }
 
 const dimensions = Dimensions.get('window');
 
-export function OptionWrapper({ isOpen, onClose, triggerRef, onSelect, options }: Props) {
+export function OptionWrapper({ isOpen, onClose, triggerRef, onSelect, options, darkColor }: Props) {
   const [triggerWidth, setTriggerWidth] = useState(0);
 
   const [bodyPositionTop, setBodyPositionTop] = useState(493.81);
@@ -27,6 +29,12 @@ export function OptionWrapper({ isOpen, onClose, triggerRef, onSelect, options }
       setBodyPositionTop(triggerPageY + triggerHeight);
     })
   }, [isOpen]);
+
+  const { colors } = useTheme();
+
+  const currentColor = darkColor
+    ? colors.gray.default
+    : undefined;
 
   return (
     <Modal
@@ -49,7 +57,7 @@ export function OptionWrapper({ isOpen, onClose, triggerRef, onSelect, options }
           data={options}
           renderItem={({ item: option }) => (
             <Option onPress={() => { onSelect(option); onClose(); }}>
-              <Label>
+              <Label color={currentColor}>
                 {option.label}
               </Label>
             </Option>

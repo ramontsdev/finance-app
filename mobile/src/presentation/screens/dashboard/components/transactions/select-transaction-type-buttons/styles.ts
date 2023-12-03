@@ -11,7 +11,7 @@ export const IncomeButton = styled.TouchableOpacity`
   padding: 4px 12px;
 
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.success};
+  background-color: ${({ theme }) => theme.colors.success.default};
 `;
 
 export const ExpenseButton = styled.TouchableOpacity`
@@ -20,5 +20,5 @@ export const ExpenseButton = styled.TouchableOpacity`
   padding: 4px 12px;
 
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.danger};
+  background-color: ${({ theme }) => theme.colors.danger.default};
 `;

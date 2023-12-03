@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Wrapper = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.lightness};
+  background-color: ${({ theme }) => theme.colors.gray.default};
 `;
 
 export const Header = styled.View``;
@@ -18,6 +18,6 @@ export const FiltersWrapper = styled.View`
 export const TransactionsWrapper = styled.View`
   flex: 1;
 
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.gray[900]};
 `;
 

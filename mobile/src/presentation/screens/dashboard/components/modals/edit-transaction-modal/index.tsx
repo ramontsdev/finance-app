@@ -69,6 +69,7 @@ export function EditTransactionModal({ transaction, isOpen, onClose }: Props) {
               onChangeValue={onChange}
               renderTextInput={props => (
                 <Input
+                  darkColor
                   label="Valor"
                   {...props}
                   errorMessage={errors.value?.message}
@@ -87,6 +88,7 @@ export function EditTransactionModal({ transaction, isOpen, onClose }: Props) {
           name="name"
           render={({ field: { value, onChange } }) => (
             <Input
+              darkColor
               label={isExpense ? 'Nome da despesa' : 'Nome da receita'}
               value={value}
               onChangeText={onChange}
@@ -100,6 +102,7 @@ export function EditTransactionModal({ transaction, isOpen, onClose }: Props) {
           name="categoryId"
           render={({ field: { value, onChange } }) => (
             <SelectOption
+              darkColor
               label="Categoria"
               onSelect={onChange}
               options={categories.map(category => ({
@@ -107,7 +110,7 @@ export function EditTransactionModal({ transaction, isOpen, onClose }: Props) {
                 label: category.name,
               }))
               }
-              value={categories[categories.findIndex(c => c.id == value)].name}
+              value={categories[categories.findIndex(c => c.id == value)]?.name}
               errorMessage={errors.categoryId?.message}
             />
           )}
@@ -118,6 +121,7 @@ export function EditTransactionModal({ transaction, isOpen, onClose }: Props) {
           name="bankAccountId"
           render={({ field: { value, onChange } }) => (
             <SelectOption
+              darkColor
               label={isExpense ? 'Pagar com' : 'Receber com'}
               onSelect={onChange}
               options={bankAccounts.map(bankAccount => ({
@@ -125,7 +129,7 @@ export function EditTransactionModal({ transaction, isOpen, onClose }: Props) {
                 label: bankAccount.name,
               }))
               }
-              value={bankAccounts[bankAccounts.findIndex(bk => bk.id == value)].name}
+              value={bankAccounts[bankAccounts.findIndex(bk => bk.id == value)]?.name}
               errorMessage={errors.bankAccountId?.message}
             />
           )}
@@ -140,6 +144,7 @@ export function EditTransactionModal({ transaction, isOpen, onClose }: Props) {
                 label='Data'
                 onPress={openDatePicker}
                 value={formatDate(value)}
+                darkColor
               />
 
               {isOpenDatePicker && (

@@ -5,17 +5,19 @@ import { Wrapper } from "./styles";
 
 type Props = {
   color?: string;
+  size?: number;
 }
-export function Logo({ color }: Props) {
+export function Logo({ color, size }: Props) {
   const { colors } = useTheme();
 
-  const currentColor = color ? color : colors.primary
+  const currentColor = color ? color : colors.primary.default
+  const currentSize = size ? size : 24;
 
   return (
     <Wrapper>
       <Svg
-        width="24"
-        height="24"
+        width={currentSize}
+        height={currentSize}
         viewBox="0 0 24 24"
         fill="none"
       >
