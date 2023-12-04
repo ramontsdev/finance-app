@@ -13,13 +13,13 @@ export function Fab() {
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
           <button
-            className="bg-teal-900 w-12 h-12 rounded-full flex items-center justify-center text-white"
+            className="bg-primary-default w-12 h-12 rounded-full flex items-center justify-center text-white"
           >
             <PlusIcon className="w-6 h-6" />
           </button>
         </DropdownMenu.Trigger>
 
-        <DropdownMenu.Content>
+        <DropdownMenu.Content className="bg-gray-50">
           <DropdownMenu.Item className="gap-2" onSelect={() => openNewTransactionModal('EXPENSE')}>
             <CategoryIcon type="expense" />
             Nova Despesa

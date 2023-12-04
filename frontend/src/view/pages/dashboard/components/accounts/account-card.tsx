@@ -16,7 +16,7 @@ export function AccountCard({ data }: AccountCardProps) {
 
   return (
     <div
-      className="bg-white h-32 flex flex-col p-2 rounded-2xl justify-between border-b-4 border-teal-950"
+      className="bg-primary-default h-32 flex flex-col p-2 rounded-2xl justify-between border-b-1 border-teal-950"
       style={{ borderColor: color }}
       role="button"
       onClick={() => openEditAccountModal(data)}
@@ -24,7 +24,7 @@ export function AccountCard({ data }: AccountCardProps) {
       <div>
         <BankAccountTypeIcon type={type} />
 
-        <span className="text-gray-800 font-bold tracking-[-0.5px] mt-1 block">
+        <span className="text-gray-50 font-bold tracking-[-0.5px] mt-1 block">
           {name}
         </span>
       </div>
@@ -32,13 +32,13 @@ export function AccountCard({ data }: AccountCardProps) {
       <div className="flex flex-col">
         <span
           className={cn(
-            'text-gray-800 font-semibold tracking-[-0.5px] text-sm',
+            'text-gray-50 font-semibold tracking-[-0.5px] text-sm',
             !areValuesVisible && 'blur-sm',
           )}
         >
           {formatCurrency(currentBalance)}
         </span>
-        <small className="text-gray-800 text-xs">
+        <small className="text-gray-200 text-xs">
           Saldo atual
         </small>
       </div>

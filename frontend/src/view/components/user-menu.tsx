@@ -16,15 +16,15 @@ export function UserMenu() {
       <DropdownMenu.Trigger>
         <div
           role="button"
-          className="bg-violet-0 rounded-full w-12 h-12 flex items-center justify-center border border-violet-200"
+          className="bg-primary-default rounded-full w-12 h-12 flex items-center justify-center border border-violet-200"
         >
-          <span className="text=sm tracking-[-0.5px] text-violet-900 font-medium select-none">
+          <span className="text=sm tracking-[-0.5px] text-gray-50 font-medium select-none">
             {user?.name.slice(0, 2).toLocaleUpperCase()}
           </span>
         </div>
       </DropdownMenu.Trigger>
 
-      <DropdownMenu.Content className="w-36 mr-3">
+      <DropdownMenu.Content className="w-36 mr-3 bg-gray-50">
         <DropdownMenu.Item
           className="flex items-center justify-between"
           onSelect={openFeedbackSendingModalOpen}

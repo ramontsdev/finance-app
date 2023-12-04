@@ -20,7 +20,7 @@ export function Modal({
       <RdxDialog.Portal>
         <RdxDialog.Overlay
           className={cn(
-            'fixed inset-0 bg-black/80 backdrop-blur-sm z-50',
+            'fixed inset-0 bg-gray-950/20 backdrop-blur-sm z-50',
             'data-[state=open]:animate-overlay-show',
           )}
         />

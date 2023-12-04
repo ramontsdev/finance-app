@@ -14,7 +14,7 @@ export function Logo({ className }: LogoProps) {
         <path d="M18.0852 7.58365L16.4994 4.94056C15.3632 3.06933 13.3979 2.43801 11.5116 3.57524L3.76284 8.23874C1.88403 9.36733 1.50568 11.4029 2.63426 13.2893L5.69569 18.3549C5.83839 18.6003 5.99622 18.8208 6.17675 19.0186V19.0262" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
 
-      <span>finance app</span>
+      <span className="text-gray-50">finance app</span>
     </div>
   );
 }

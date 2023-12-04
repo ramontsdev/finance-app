@@ -61,7 +61,7 @@ export function Transactions() {
                 selectedType={filters.type}
               />
 
-              <button onClick={handleOpenFiltersModal}>
+              <button className="text-gray-50" onClick={handleOpenFiltersModal}>
                 <FilterIcon />
               </button>
             </div>
@@ -102,7 +102,7 @@ export function Transactions() {
             {(!hasTransactions && !isLoading) && (
               <div className="flex flex-col items-center justify-center h-full">
                 <img src={emptyStateImage} alt="Empty state" />
-                <p className="text-gray-700">
+                <p className="text-gray-50">
                   Não encontramos nenhuma transação.
                 </p>
               </div>
@@ -121,7 +121,7 @@ export function Transactions() {
                 {transactions.map((transaction, index) => (
                   <div
                     key={transaction.id}
-                    className="bg-white p-4 rounded-2xl flex items-center justify-between gap-4 max-md:p-2"
+                    className="bg-gray-50 p-4 rounded-2xl flex items-center justify-between gap-4 max-md:p-2"
                     role="button"
                     onClick={() => handleOpenEditModal(transaction)}
                   >
@@ -145,7 +145,7 @@ export function Transactions() {
                     <span
                       className={cn(
                         'tracking-[-0.5px] font-medium',
-                        transaction.type === 'EXPENSE' ? 'text-red-800' : 'text-green-800',
+                        transaction.type === 'EXPENSE' ? 'text-danger-default' : 'text-success-600',
                         !areValuesVisible && 'blur-sm',
                         (transactions.length >= 4 && index === (transactions.length - 1)) && 'max-md:mr-7',
                       )}
