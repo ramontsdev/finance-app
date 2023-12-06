@@ -8,11 +8,12 @@ type Props = TouchableOpacityProps & {
   isLoading?: boolean;
   color?: string;
 }
-export function Button({ children, isLoading, ...props }: Props) {
+export function Button({ children, isLoading, style, ...props }: Props) {
   return (
     <Wrap>
       <Pressable
         style={({ pressed }) => [
+          style,
           pressed && { transform: [{ scale: 0.987 }] },
         ]}
         {...props}
